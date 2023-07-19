@@ -17,6 +17,9 @@ test("Get started", async ({ page }) => {
 
 test("Page search function", async ({ page }) => {
   await page.goto('https://playwright.dev/');
-  await page.getByPlaceholder('Search docs').fill('Assertions');
-  await page.getByPlaceholder('Search docs').press('Enter');
+  await page.getByLabel('Search').click();
+  await page.getByPlaceholder('Search docs').fill(SEARCH_ITEMS[0]);
+  await page.getByRole('link', { name: 'Assertions', exact: true }).click();
+  await expect(page).toHaveURL(/.*test-assertions/)
 });
+
