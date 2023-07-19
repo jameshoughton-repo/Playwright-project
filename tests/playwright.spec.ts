@@ -6,6 +6,8 @@ const SEARCH_ITEMS = [
   'Locators',
 ];
 
+test.describe("Homepage tests", () => { 
+
 test("Get started", async ({ page }) => {
   await page.goto('https://playwright.dev/');
   await expect(page).toHaveTitle(/Playwright/)
@@ -23,3 +25,4 @@ test("Page search function", async ({ page }) => {
   await expect(page).toHaveURL(/.*test-assertions/)
 });
 
+});
